@@ -1,7 +1,7 @@
 <html>
 	<!-- navbar -->
 	<head>
-		<title> waitLess Test 2 </title>
+		<title> Emily </title>
 		<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -166,21 +166,22 @@
             	zoom: 16,
             	layers: [campusMap]
             });
-            //gjFrist.addTo(mymap);
-            //gjDillon.addTo(mymap);
-            //gjDin.addTo(mymap);
-            gjLib.addTo(mymap);
 
             // layer controls
             var baseMaps = {
             	"Campus": campusMap
             };
             var overlayMaps = {
-            	"All Buildings": gjAll,
+            	"Frist": gjFrist,
+            	"Dillon": gjDillon,
                 "Dining Halls": gjDin,
                 "Libraries": gjLib
             };
             L.control.layers(baseMaps, overlayMaps, {position:'bottomleft'}).addTo(mymap);
+            gjFrist.addTo(mymap);
+            gjDillon.addTo(mymap);
+            gjDin.addTo(mymap);
+            djLib.addTo(mymap);
             
 			// load hover box in top right
 			var info = L.control({position: 'topright'});
@@ -255,10 +256,10 @@
 
 			// unhighlight
 			function resetHighlight(e) {
-				//gjFrist.resetStyle(e.target);
-				//gjDillon.resetStyle(e.target);
-				//gjDin.resetStyle(e.target);
-				//gjLib.resetStyle(e.target);
+				gjFrist.resetStyle(e.target);
+				gjDillon.resetStyle(e.target);
+				gjDin.resetStyle(e.target);
+				gjLib.resetStyle(e.target);
 				info.update();
 			}
 
