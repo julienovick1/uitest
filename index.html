@@ -173,7 +173,7 @@
                 "Dining Halls": gjDin,
                 "Libraries": gjLib
             };
-            L.control.layers(null, overlayMaps, {position:'bottomleft'}).addTo(mymap);
+            L.control.layers(baseMaps, overlayMaps, {position:'bottomleft'}).addTo(mymap);
             
 			// load hover box in top right
 			var info = L.control({position: 'topright'});
