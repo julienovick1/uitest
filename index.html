@@ -1,7 +1,7 @@
 <html>
 	<!-- navbar -->
 	<head>
-		<title> waitLess </title>
+		<title> waitLess 2 </title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
 		<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -160,14 +160,18 @@
 			var gjFrist1 = L.geoJson(frist1, {style: style, onEachFeature: onEachFeature, time: "2013-01-22 08:42:26+01"});
 	 		var gjFrist2 = L.geoJson(frist2, {style: style, onEachFeature: onEachFeature, time: "2013-01-22 10:03:29+01"});
 
+	 		var fristLayers = L.layerGroup([gjFrist1, gjFrist2]);
+	 		var dillonLayers = L.layerGroup([gjDill1, gjDill2]);
+
+	 		var time1Layers = L.layerGroup([gjFrist1, gjDill1]);
+	 		var time2Layers = L.layerGroup([gjFrist2, gjDill2]);
+
             // set up layers
             var overlayMaps = {
-            	"Frist": gjFrist1,
-            	"Dillon": gjDill1,
+            	"Frist": fristLayers,
+            	"Dillon": dillonLayers,
             };
             L.control.layers(null, overlayMaps, {position:'bottomleft'}).addTo(mymap);
-            gjFrist1.addTo(mymap);
-            gjDill1.addTo(mymap);
             
 			// load hover box
 			var info = L.control({position: 'topright'});
@@ -182,7 +186,7 @@
 			info.addTo(mymap);
 
 			// load slider
-            layerGroup = L.layerGroup([gjFrist1, gjDill1, gjFrist2, gjDill2]);
+            layerGroup = L.layerGroup([time1Layers, time2Layers]);
 			var sliderControl = L.control.sliderControl({position: "topright", layer:layerGroup, follow: 1});
 			mymap.addControl(sliderControl);
 			sliderControl.startSlider();
