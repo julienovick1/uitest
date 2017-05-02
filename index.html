@@ -221,7 +221,7 @@
 			sliderControl.startSlider();
             
 			// load hover box
-			var info = L.control({position: 'bottomright'});
+			var info = L.control({position: 'topright'});
 			info.onAdd = function(map) {
 				this._div = L.DomUtil.create('div', 'info');
 				this.update();
@@ -293,8 +293,8 @@
 
 			// unhighlight
 			function resetHighlight(e) {
-				data1.resetStyle(e.target);
-				data2.resetStyle(e.target);
+				gj1.resetStyle(e.target);
+				gj2.resetStyle(e.target);
 				info.update();
 			}
 
