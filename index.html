@@ -168,7 +168,7 @@
 			}
 
 			// add listeners
-			function filterOnEachFeature(feature, layer) {
+			/* function filterOnEachFeature(feature, layer) {
 				layer.on({
 					mouseover: filterHighlightFeature,
 					mouseout: resetHighlight,
@@ -190,12 +190,12 @@
 					layer.bringToFront();
 				}
 				info.update(layer.feature.properties);
-			}
+			} */
 		 	
-		 	var gjDinHall = L.geoJson(outlineDinHall, {style: filterStyle, onEachFeature: filterOnEachFeature});
-            var gjCafes = L.geoJson(outlineCafes, {style: filterStyle, onEachFeature: filterOnEachFeature});
-            var gjFirestone = L.geoJson(outlineFirestone, {style: filterStyle, onEachFeature: filterOnEachFeature});
-            var gjDillon = L.geoJson(outlineDillon, {style: filterStyle, onEachFeature: filterOnEachFeature});
+		 	var gjDinHall = L.geoJson(outlineDinHall, {style: filterStyle/*, onEachFeature: filterOnEachFeature*/});
+            var gjCafes = L.geoJson(outlineCafes, {style: filterStyle/*, onEachFeature: filterOnEachFeature*/});
+            var gjFirestone = L.geoJson(outlineFirestone, {style: filterStyle/*, onEachFeature: filterOnEachFeature*/});
+            var gjDillon = L.geoJson(outlineDillon, {style: filterStyle/*, onEachFeature: filterOnEachFeature*/});
 
             var overlayMaps = {
             	"Dining Halls": gjDinHall,
