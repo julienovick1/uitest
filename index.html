@@ -166,11 +166,36 @@
 					fillOpacity: 0
 				};
 			}
+
+			// add listeners
+			function filterOnEachFeature(feature, layer) {
+				layer.on({
+					mouseover: filterHighlightFeature,
+					mouseout: resetHighlight,
+					click: showHistory
+				});
+			}
+
+			// highlight
+			function filterHighlightFeature(e) {
+				var layer = e.target;
+				layer.setStyle({
+					weight: 1,
+					opacity: 1,
+					color: 'white',
+					dashArray: '3',
+					fillOpacity: 1.4
+				});
+				if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+					layer.bringToFront();
+				}
+				info.update(layer.feature.properties);
+			}
 		 	
-		 	var gjDinHall = L.geoJson(outlineDinHall, {style: filterStyle});
-            var gjCafes = L.geoJson(outlineCafes, {style: filterStyle});
-            var gjFirestone = L.geoJson(outlineFirestone, {style: filterStyle});
-            var gjDillon = L.geoJson(outlineDillon, {style: filterStyle});
+		 	var gjDinHall = L.geoJson(outlineDinHall, {style: filterStyle, onEachFeature: filterOnEachFeature});
+            var gjCafes = L.geoJson(outlineCafes, {style: filterStyle, onEachFeature: filterOnEachFeature});
+            var gjFirestone = L.geoJson(outlineFirestone, {style: filterStyle}, onEachFeature: filterOnEachFeature);
+            var gjDillon = L.geoJson(outlineDillon, {style: filterStyle, onEachFeature: filterOnEachFeature});
 
             var overlayMaps = {
             	"Dining Halls": gjDinHall,
