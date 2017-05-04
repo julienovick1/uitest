@@ -167,10 +167,10 @@
 				};
 			}
 		 	
-		 	var gjDinHall = L.geoJson(outlineDinHall, {style: filterStyle, onEachFeature: onEachFeature});
-            var gjCafes = L.geoJson(outlineCafes, {style: filterStyle, onEachFeature: onEachFeature});
-            var gjFirestone = L.geoJson(outlineFirestone, {style: filterStyle, onEachFeature: onEachFeature});
-            var gjDillon = L.geoJson(outlineDillon, {style: filterStyle, onEachFeature: onEachFeature});
+		 	var gjDinHall = L.geoJson(outlineDinHall, {style: filterStyle});
+            var gjCafes = L.geoJson(outlineCafes, {style: filterStyle});
+            var gjFirestone = L.geoJson(outlineFirestone, {style: filterStyle});
+            var gjDillon = L.geoJson(outlineDillon, {style: filterStyle});
 
             var overlayMaps = {
             	"Dining Halls": gjDinHall,
