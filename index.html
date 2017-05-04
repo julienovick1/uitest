@@ -264,10 +264,10 @@
 			function highlightFeature(e) {
 				var layer = e.target;
 				layer.setStyle({
-					weight: 0,
-					// opacity: 1,
+					weight: 1,
+					opacity: 1,
 					color: 'white',
-					// dashArray: '3',
+					dashArray: '3',
 					fillOpacity: 1.4
 				});
 				if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
