@@ -223,10 +223,11 @@
 			function highlightFeature(e) {
 				var layer = e.target;
 				layer.setStyle({
-					weight: 3,
-					color: '#666',
-					dashArray: '',
-					fillOpacity: 0.7
+					weight: 0,
+					// opacity: 1,
+					color: 'white',
+					// dashArray: '3',
+					fillOpacity: 1
 				});
 				if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
 					layer.bringToFront();
